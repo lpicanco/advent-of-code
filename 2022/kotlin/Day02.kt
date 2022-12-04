@@ -14,10 +14,10 @@ enum class Shape(private val shapePoints: Int, private val winAgainst: Int) {
     }
 
     companion object {
-        fun parse(value: String): Shape = when(value) {
-            "A", "X"  -> Rock
-            "B", "Y"  -> Paper
-            "C", "Z"  -> Scissors
+        fun parse(value: String): Shape = when (value) {
+            "A", "X" -> Rock
+            "B", "Y" -> Paper
+            "C", "Z" -> Scissors
             else -> throw IllegalArgumentException("Invalid shape: $value")
         }
     }
@@ -34,7 +34,7 @@ private fun part2(input: List<String>): Int {
     return input.sumOf { line ->
         val (opponent, me) = line.split(" ").map { Shape.parse(it) }
 
-        val trueMe = when(me) {
+        val trueMe = when (me) {
             Shape.Rock -> Shape.values().first { it.outcome(opponent) == 0 } // Lose
             Shape.Paper -> Shape.values().first { it.outcome(opponent) == 3 } // Draw
             Shape.Scissors -> Shape.values().first { it.outcome(opponent) == 6 } // Win
@@ -45,7 +45,7 @@ private fun part2(input: List<String>): Int {
 }
 
 fun main() {
-    val input = readInput("day02.txt");
-    println(part1(input));
-    println(part2(input));
+    val input = readInput("day02.txt")
+    println(part1(input))
+    println(part2(input))
 }

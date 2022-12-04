@@ -35,7 +35,7 @@ private fun part2(input: List<String>): Int {
 }
 
 fun main() {
-    val input = readInput("day01.txt");
-    println(part1(input));
-    println(part2(input));
+    val input = readInput("day01.txt")
+    println(part1(input))
+    println(part2(input))
 }
