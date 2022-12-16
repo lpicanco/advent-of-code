@@ -1,12 +1,6 @@
 const val start = 'S'
 const val end = 'E'
 
-data class Position(var row: Int, var col: Int)
-
-fun List<List<Char>>.get(position: Position): Char {
-    return this[position.row][position.col]
-}
-
 fun List<List<Char>>.getTranslated(position: Position): Char {
     return when (val value = get(position)) {
         start -> 'a'
