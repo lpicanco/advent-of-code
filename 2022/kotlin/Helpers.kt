@@ -26,3 +26,5 @@ data class Position(var row: Int, var col: Int) {
         return abs(row - other.row) + abs(col - other.col)
     }
 }
+
+data class Vector3(val x: Int, val y: Int, val z: Int)
