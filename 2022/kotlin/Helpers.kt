@@ -17,6 +17,10 @@ fun <T> List<MutableList<T>>.set(position: Position, value: T) {
     this[position.row][position.col] = value
 }
 
+fun <T> List<List<T>>.isValid(position: Position): Boolean {
+    return position.row in this.indices && position.col in this[position.row].indices
+}
+
 fun <T> List<List<T>>.get(position: Position): T {
     return this[position.row][position.col]
 }
