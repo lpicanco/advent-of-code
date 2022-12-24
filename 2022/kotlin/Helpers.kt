@@ -29,6 +29,8 @@ data class Position(var row: Int, var col: Int) {
     fun manhattanDistance(other: Position): Int {
         return abs(row - other.row) + abs(col - other.col)
     }
+
+    operator fun plus(other: Position): Position = Position(row + other.row, col + other.col)
 }
 
 data class Vector3(val x: Int, val y: Int, val z: Int)
