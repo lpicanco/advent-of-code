@@ -47,3 +47,24 @@ data class Position2D(val row: Int, val col: Int) {
     fun plus(row: Int, col: Int): Position2D = Position2D(this.row + row, this.col + col)
     fun plus(other: Position2D): Position2D = plus(other.row, other.col)
 }
+
+fun lcm(a: Long, b: Long): Long {
+    val larger = if (a > b) a else b
+    val maxLcm = a * b
+    var lcm = larger
+    while (lcm <= maxLcm) {
+        if (lcm % a == 0L && lcm % b == 0L) {
+            return lcm
+        }
+        lcm += larger
+    }
+    return maxLcm
+}
+
+fun lcm(numbers: List<Long>): Long {
+    var result = numbers[0]
+    for (i in 1 until numbers.size) {
+        result = lcm(result, numbers[i])
+    }
+    return result
+}
