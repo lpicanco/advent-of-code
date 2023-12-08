@@ -6,22 +6,25 @@ class Day07(
     fun solve1(): Int {
         return lines.map(::parse)
             .sortedWith(
-                compareBy(Hand::score).thenBy { it }
+                compareBy(Hand::score).thenBy { it },
             ).mapIndexed { index: Int, hand: Hand ->
                 hand.bid * (index + 1)
             }.sum()
-
     }
 
     fun solve2(): Int {
         return lines.map { parse(it, applyJokerRule = true) }
             .sortedWith(
-                compareBy(Hand::score).thenBy { it }
+                compareBy(Hand::score).thenBy { it },
             ).mapIndexed { index: Int, hand: Hand ->
                 hand.bid * (index + 1)
             }.sum()
     }
-    private fun parse(line: String, applyJokerRule: Boolean = false): Hand {
+
+    private fun parse(
+        line: String,
+        applyJokerRule: Boolean = false,
+    ): Hand {
         val (cardStr, bidStr) = line.split(" ")
         val cards = cardStr.map { calculateStrength(it, applyJokerRule) }
 
@@ -34,7 +37,10 @@ class Day07(
         return Hand(cards, score, bidStr.toInt())
     }
 
-    private fun calculateStrength(card: Char, applyJokerRule: Boolean): Int {
+    private fun calculateStrength(
+        card: Char,
+        applyJokerRule: Boolean,
+    ): Int {
         val jStrength = if (applyJokerRule) JOKER_VALUE else 11
         return when (card) {
             'A' -> 14
@@ -78,7 +84,8 @@ class Day07(
             else -> 1
         }
     }
-    data class Hand(val cards: List<Int>, val score: Int, val bid: Int): Comparable<Hand> {
+
+    data class Hand(val cards: List<Int>, val score: Int, val bid: Int) : Comparable<Hand> {
         override fun compareTo(other: Hand): Int {
             return compareValuesBy(this, other, { it.cards[0] }, { it.cards[1] }, { it.cards[2] }, { it.cards[3] }, { it.cards[4] })
         }

@@ -5,6 +5,7 @@ class Day08(
 ) {
     private val instructions = lines[0].map(::parseInstruction)
     private val map = lines.drop(2).associate(::parseMap)
+
     fun solve1(): Long {
         val start = map.getValue("AAA")
         return solve(start) {
@@ -13,18 +14,22 @@ class Day08(
     }
 
     fun solve2(): Long {
-        val solutions = map.keys
-            .filter { it[2] == 'A' }
-            .map {
-                solve(map.getValue(it)) { key ->
-                    key[2] == 'Z'
+        val solutions =
+            map.keys
+                .filter { it[2] == 'A' }
+                .map {
+                    solve(map.getValue(it)) { key ->
+                        key[2] == 'Z'
+                    }
                 }
-            }
 
         return lcm(solutions)
     }
 
-    private fun solve(start: Array<String>, predicate: (String) -> Boolean): Long {
+    private fun solve(
+        start: Array<String>,
+        predicate: (String) -> Boolean,
+    ): Long {
         var steps = 0L
         var current = start
         var instructionIndex = 0
@@ -50,14 +55,16 @@ class Day08(
         return key to arrayOf(left, right)
     }
 
-    private fun parseInstruction(instruction: Char) = when (instruction) {
-        'L' -> Direction.LEFT
-        'R' -> Direction.RIGHT
-        else -> throw IllegalArgumentException("Invalid instruction: $instruction")
-    }
+    private fun parseInstruction(instruction: Char) =
+        when (instruction) {
+            'L' -> Direction.LEFT
+            'R' -> Direction.RIGHT
+            else -> throw IllegalArgumentException("Invalid instruction: $instruction")
+        }
 
     enum class Direction(val position: Int) {
-        LEFT(0), RIGHT(1)
+        LEFT(0),
+        RIGHT(1),
     }
 }
 

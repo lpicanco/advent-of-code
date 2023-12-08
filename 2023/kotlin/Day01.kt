@@ -1,31 +1,32 @@
 package aoc2023
 
 class Day01(
-    private val lines: List<String>
+    private val lines: List<String>,
 ) {
     fun solve1(): Int {
-        val sum = lines.sumOf { line ->
-            var i = 0
-            var j = line.lastIndex
-            var left: Char? = null
-            var right: Char? = null
+        val sum =
+            lines.sumOf { line ->
+                var i = 0
+                var j = line.lastIndex
+                var left: Char? = null
+                var right: Char? = null
 
-            while (left == null || right == null) {
-                if (line[i].isDigit()) {
-                    left = line[i]
-                } else {
-                    i++
+                while (left == null || right == null) {
+                    if (line[i].isDigit()) {
+                        left = line[i]
+                    } else {
+                        i++
+                    }
+
+                    if (line[j].isDigit()) {
+                        right = line[j]
+                    } else {
+                        j--
+                    }
                 }
 
-                if (line[j].isDigit()) {
-                    right = line[j]
-                } else {
-                    j--
-                }
+                (left.toString() + right.toString()).toInt()
             }
-
-            (left.toString() + right.toString()).toInt()
-        }
         return sum
     }
 
@@ -35,13 +36,13 @@ class Day01(
             var right: String? = null
 
             var i = 0
-            while(left == null) {
+            while (left == null) {
                 left = getNumberOrNull(line, i)
                 i++
             }
 
             var j = line.lastIndex
-            while(right == null) {
+            while (right == null) {
                 right = getNumberOrNull(line, j)
                 j--
             }
@@ -49,7 +50,10 @@ class Day01(
         }
     }
 
-    private fun getNumberOrNull(line: String, x: Int): String? {
+    private fun getNumberOrNull(
+        line: String,
+        x: Int,
+    ): String? {
         if (line[x].isDigit()) {
             return line[x].toString()
         }
@@ -66,19 +70,20 @@ class Day01(
     }
 
     companion object {
-        val SPELLED_NUMBERS: List<String> = listOf(
-            "zero",
-            "one",
-            "two",
-            "three",
-            "four",
-            "five",
-            "six",
-            "seven",
-            "eight",
-            "nine",
-            "ten"
-        )
+        val SPELLED_NUMBERS: List<String> =
+            listOf(
+                "zero",
+                "one",
+                "two",
+                "three",
+                "four",
+                "five",
+                "six",
+                "seven",
+                "eight",
+                "nine",
+                "ten",
+            )
     }
 }
 

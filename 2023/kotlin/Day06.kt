@@ -20,7 +20,10 @@ class Day06(
         return countBestDistances(duration.toInt(), maxDistance)
     }
 
-    private fun countBestDistances(duration: Int, maxDistance: Long): Int {
+    private fun countBestDistances(
+        duration: Int,
+        maxDistance: Long,
+    ): Int {
         var count = 0
         repeat(duration) {
             val traveledDistance = (it.toLong()) * (duration - it)
@@ -34,6 +37,7 @@ class Day06(
     private fun parseWithSplitNumbers(line: String): List<Long> {
         return line.substringAfter(":").split(" ").filter { it.isNotBlank() }.map { it.trim().toLong() }
     }
+
     private fun parseWithUniqueNumber(line: String): Long {
         return line.substringAfter(":").split(" ").filter { it.isNotBlank() }.map { it.trim() }.joinToString("").toLong()
     }
