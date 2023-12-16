@@ -25,7 +25,7 @@ class Day03(
         while (row <= grid.lastRowIndex) {
             var col = 0
             while (col <= grid.lastColIndex) {
-                var position = Position2D(row, col)
+                var position = Position2D(col, row)
                 var char = grid.get(position)
                 var adjacentPos: Position2D? = null
                 var num = ""
@@ -37,7 +37,7 @@ class Day03(
 
                     num += char
                     col++
-                    position = Position2D(row, col)
+                    position = Position2D(col, row)
                     if (!grid.isValid(position)) {
                         break
                     }
