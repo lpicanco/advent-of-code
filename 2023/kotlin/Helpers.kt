@@ -81,12 +81,9 @@ data class Grid2D(
     }
 
     fun orthogonalAdjacent(position: Position2D): List<Position2D> {
-        return listOf(
-            position.plus(-1, 0),
-            position.plus(0, -1),
-            position.plus(0, 1),
-            position.plus(1, 0),
-        ).filter { isValid(it) }
+        return position.orthogonalDirections
+            .map { position.plus(it.offset) }
+            .filter { isValid(it) }
     }
 
     fun columnToString(columnIndex: Int): String {
@@ -137,6 +134,15 @@ data class Grid2D(
 }
 
 data class Position2D(val x: Int, val y: Int) {
+    val orthogonalDirections: List<Direction> by lazy {
+        listOf(
+            Direction.Up,
+            Direction.Left,
+            Direction.Right,
+            Direction.Down
+        )
+    }
+
     fun plus(
         row: Int,
         col: Int,
