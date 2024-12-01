@@ -2,6 +2,9 @@
 
 My solutions to the [Advent of Code](https://adventofcode.com/) puzzles.
 
+## [2024](https://adventofcode.com/2024)
+- [Kotlin solutions](2024/kotlin)
+
 ## [2023](https://adventofcode.com/2023)
 - [Kotlin solutions](2023/kotlin)
 
