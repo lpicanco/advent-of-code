@@ -29,5 +29,5 @@ out
 hs_err_pid*
 
 # aoc_tiles, see https://github.com/LiquidFun/aoc_tiles?tab=readme-ov-file
-/.aoc_tiles/**/*
-!/.aoc_tiles/tiles/
+.aoc_tiles/*
+!.aoc_tiles/tiles/
