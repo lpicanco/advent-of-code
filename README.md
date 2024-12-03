@@ -21,7 +21,7 @@ My solutions to the [Advent of Code](https://adventofcode.com/) puzzles.
 <a href="2024/kotlin/Day02.kt">
   <img src=".aoc_tiles/tiles/2024/02.png" width="161px">
 </a>
-<a href="None">
+<a href="2024/kotlin/Day03.kt">
   <img src=".aoc_tiles/tiles/2024/03.png" width="161px">
 </a>
 <h1 align="center">
