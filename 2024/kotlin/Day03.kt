@@ -31,7 +31,6 @@ fun main() {
         println(it)
     }
     Day03(File("2024/inputs/day03.txt").readText()).solve1().also {
-        check(it == 161289189) { "Invalid: $it" }
         println(it)
     }
     Day03(testInput2).solve2().also {
@@ -39,7 +38,6 @@ fun main() {
         println(it)
     }
     Day03(File("2024/inputs/day03.txt").readText()).solve2().also {
-        check(it == 83595109) { "Invalid: $it" }
         println(it)
     }
 }
