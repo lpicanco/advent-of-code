@@ -24,6 +24,20 @@ enum class Direction(val offset: Position2D, val char: Char) {
     DownLeft(Position2D(-1, 1), '/'),
     Left(Position2D(-1, 0), '<'),
     UpLeft(Position2D(-1, -1), '\\'),
+    ;
+
+    val turnRight: Direction by lazy {
+        when (this) {
+            Up -> Right
+            Right -> Down
+            Down -> Left
+            Left -> Up
+            UpRight -> DownRight
+            DownRight -> DownLeft
+            DownLeft -> UpLeft
+            UpLeft -> UpRight
+        }
+    }
 }
 
 data class Position2D(val x: Int, val y: Int) {

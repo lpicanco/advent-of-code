@@ -13,7 +13,7 @@ My solutions to the [Advent of Code](https://adventofcode.com/) puzzles.
 
 <!-- AOC TILES BEGIN -->
 <h1 align="center">
-  2024 - 10 ⭐
+  2024 - 12 ⭐
 </h1>
 <a href="2024/kotlin/Day01.kt">
   <img src=".aoc_tiles/tiles/2024/01.png" width="161px">
@@ -29,6 +29,9 @@ My solutions to the [Advent of Code](https://adventofcode.com/) puzzles.
 </a>
 <a href="2024/kotlin/Day05.kt">
   <img src=".aoc_tiles/tiles/2024/05.png" width="161px">
+</a>
+<a href="2024/kotlin/Day06.kt">
+  <img src=".aoc_tiles/tiles/2024/06.png" width="161px">
 </a>
 <h1 align="center">
   2023 - 50 ⭐
